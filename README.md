@@ -16,7 +16,7 @@ DECLARATION = ( "fn" , IDENTIFIER , "(" , ( IDENTIFIER, ( "," | ":") "TYPE", ","
 
 BLOCK = {STATEMENT};
 
-STATEMENT =  (IDENTIFIER | ("Amostre", "(", RELEXPRESSION, ")") | BLOCK | CONDITIONS | "retorne" , RELEXPRESSION);
+STATEMENT =  (IDENTIFIER | ("Amostre", "(", RELEXPRESSION, ")") | BLOCK | CONDITIONS | "retorne" , RELEXPRESSION), \n;
 
 CONDITIONS = ("SoSe", "(", RELEXPRESSION ,")", STATEMENT, (("SeNumFor", STATEMENT) | λ )) | ("ArrochaEnquanto", "(", RELEXPRESSION ,")", STATEMENT));
 
