@@ -5,34 +5,37 @@
 %}
 
 %%
-[ \t]
-"BOTA"                  return PLUS;
-"TIRA"                  return MINUS;
-"Recebe"                return EQUAL;
-"QueNem"                return EQUALEQUAL;
-"MaisMiudoQ"            return MENORQ;
-"MaisGraudoQ"           return MAIORQ;
-"Nam"                   return NOT;
-"ETBM"                  return AND;
-"ou"                    return OR;
+
+[ \t]                 ;
+
+"="                     return TEQUAL;
+"=="                    return EQUALEQUAL;
+"<"                     return MENORQ;
+"<="                    return MENORQEQ;
+">"                     return MAIORQ;
+">="                    return MAIORQEQ;
 "("                     return OP;
-")"                     return CP;
+")"                     return CP; 
 "{"                     return OC;
 "}"                     return CC;
-","                     return VIRGULA;
 "."                     return DOT;
-"\n"                    return QUEBRALINHA;
-"amostre"               return PRINT;
-"DigaAi"                return READ;
-"ArrochaEnquanto"       return WHILE;
-"SoSe"                  return IF;
-"SeNumFor"              return ELSE;
-"Numero"                return VARTYPE;
-"Texto"                 return VARTYPE;
-"return"                return RETURN;
-[a-zA-Z0-9]             return STRING;
+","                     return VIRGULA;
+"::"                    return DP;
+"+"                     return PLUS;
+"-"                     return MINUS;
+"*"                     return MULT;
+"/"                     return DIV;
+"if"                    return SE;
+"while"                 return CONTINUA;
+"def"                   return RETORNA;
+"return"                return FUNC;
+"print"                 return MOSTRE;
+[a-zA-Z_][a-zA-Z0-9_]*  return IDENTIFIER;
+[0-9]+.[0-9]*           return FLOAT;
 [0-9]+                  return INT;
-[a-zA-Z_][_a-zA-Z0-9]   return IDENTIFIER;
-
-.                      printf("Token Inválido"); yyterminate();
+"\n"                    return QUEBRALINHA;
+.                       printf("Unknown token!n"); yyterminate();
 %%
+int yywrap(void) {
+    return 1;
+}

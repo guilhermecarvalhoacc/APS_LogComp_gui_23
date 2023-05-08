@@ -4,90 +4,100 @@
   void yyerror(const char *s) { printf("ERROR: %s\n", s); }
 %}
 
+
+%token IDENTIFIER
+%token FLOAT
 %token INT
-%token PLUS
-%token MINUS
-%token MULT
-%token DIV
+%token TEQUAL
+%token EQUALEQUAL
+%token NadaVer
+%token MENORQ
+%token MENORQEQ
+%token MAIORQ
+%token MAIORQEQ
 %token OP
 %token CP
 %token OC
 %token CC
-%token EQUAL
-%token IDENTIFIER
-%token QUEBRALINHA
-%token EQUALEQUAL
-%token MAIORQ
-%token MENORQ
-%token AND
-%token OR
-%token NOT
 %token DOT
-%token STRING
 %token VIRGULA
-%token DOISPONTOS
-%token VARTYPE
-%token READ
-%token PRINT
-%token IF
-%token ELSE
-%token PV
-%token WHILE
-
-%token RETURN
-
+%token DP
+%token PLUS
+%token MINUS
+%token MULT
+%token DIV
+%token SE
+%token CONTINUA
+%token RETORNA
+%token FUNC
+%token MOSTRE
+%token QUEBRALINHA
 %start block
 
 %%
 
-block : OC statement CC
-      | QUEBRALINHA
-      ;
+block : statement
+      | statement block;    
 
+statement : assignment | return_statement QUEBRALINHA
+          | print_statement
+          | if_statement
+          | while_statement
+          QUEBRALINHA
+          ;
 
-relexpression: expression EQUALEQUAL expression
-             | expression MENORQ expression
-             | expression MAIORQ expression
-             | expression DOT expression
-             | expression
+print_statement : MOSTRE OP expression CP;
+
+while_statement : CONTINUA 
+                | COMP_EQEQ
+                | COMP_MAIORQE
+                | COMP_MQ
+                | COMP_MENORQE
+                | COMP_MENORQ
+                DP block
              ;
 
 
+COMP_STATE : COMP_EQEQ
+                      | COMP_MAIORQE
+                      | COMP_MQ
+                      | COMP_MENORQE
+                      | COMP_MENORQ
+                      ;
 
-expression: term PLUS term
-          | term MINUS term
-          | term OR term
-          | term
-          ;
+if_statement : SE COMP_STATE DP block;
 
-term: factor
-    | factor MULT factor
-    | factor DIV factor
-    | factor AND factor
-    ;
+assignment : identifier TEQUAL expression
+           | identifier TEQUAL expression OP CP 
+
+return_statement : RETORNA expression;
+
+expression : term
+           | term MINUS term
+           | term PLUS term
+           ;
+
+term : factor
+     | factor DIV factor
+     | factor MULT factor
+     ;
+
+factor : MINUS factor
+       | PLUS factor
+       | number
+       | OP expression CP
+       | identifier
+       ;
+
+identifier : IDENTIFIER;
+number : INT;
 
 
-factor: INT
-    | STRING
-    | IDENTIFIER
-    | PLUS factor
-    | MINUS factor
-    | NOT factor
-    | READ OP CP
-    | OP relexpression CP
-    ;
-
-
-statement : VARTYPE IDENTIFIER EQUAL relexpression
-          | block
-          | PRINT OP relexpression CP
-          | IF relexpression statement ELSE statement 
-          | PV;
-          | WHILE relexpression statement
-          | VARTYPE IDENTIFIER
-          | VIRGULA IDENTIFIER
-          QUEBRALINHA
-          ;
+COMP_EQEQ: expression EQUALEQUAL expression;
+COMP_MAIORQE: expression MAIORQEQ expression;
+COMP_MQ: expression MAIORQ expression; 
+COMP_MENORQE: expression MENORQEQ expression; 
+COMP_MENORQ: expression MENORQ expression; 
 
 %%
 

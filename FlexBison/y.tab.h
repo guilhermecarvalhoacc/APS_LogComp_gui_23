@@ -49,69 +49,63 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    INT = 258,
-    PLUS = 259,
-    MINUS = 260,
-    MULT = 261,
-    DIV = 262,
-    OP = 263,
-    CP = 264,
-    OC = 265,
-    CC = 266,
-    EQUAL = 267,
-    IDENTIFIER = 268,
-    QUEBRALINHA = 269,
-    EQUALEQUAL = 270,
-    MAIORQ = 271,
-    MENORQ = 272,
-    AND = 273,
-    OR = 274,
-    NOT = 275,
-    DOT = 276,
-    STRING = 277,
-    VIRGULA = 278,
-    DOISPONTOS = 279,
-    VARTYPE = 280,
-    READ = 281,
-    PRINT = 282,
-    IF = 283,
-    ELSE = 284,
-    PV = 285,
-    WHILE = 286,
-    RETURN = 287
+    IDENTIFIER = 258,
+    FLOAT = 259,
+    INT = 260,
+    TEQUAL = 261,
+    EQUALEQUAL = 262,
+    NadaVer = 263,
+    MENORQ = 264,
+    MENORQEQ = 265,
+    MAIORQ = 266,
+    MAIORQEQ = 267,
+    OP = 268,
+    CP = 269,
+    OC = 270,
+    CC = 271,
+    DOT = 272,
+    VIRGULA = 273,
+    DP = 274,
+    PLUS = 275,
+    MINUS = 276,
+    MULT = 277,
+    DIV = 278,
+    SE = 279,
+    CONTINUA = 280,
+    RETORNA = 281,
+    FUNC = 282,
+    MOSTRE = 283,
+    QUEBRALINHA = 284
   };
 #endif
 /* Tokens.  */
-#define INT 258
-#define PLUS 259
-#define MINUS 260
-#define MULT 261
-#define DIV 262
-#define OP 263
-#define CP 264
-#define OC 265
-#define CC 266
-#define EQUAL 267
-#define IDENTIFIER 268
-#define QUEBRALINHA 269
-#define EQUALEQUAL 270
-#define MAIORQ 271
-#define MENORQ 272
-#define AND 273
-#define OR 274
-#define NOT 275
-#define DOT 276
-#define STRING 277
-#define VIRGULA 278
-#define DOISPONTOS 279
-#define VARTYPE 280
-#define READ 281
-#define PRINT 282
-#define IF 283
-#define ELSE 284
-#define PV 285
-#define WHILE 286
-#define RETURN 287
+#define IDENTIFIER 258
+#define FLOAT 259
+#define INT 260
+#define TEQUAL 261
+#define EQUALEQUAL 262
+#define NadaVer 263
+#define MENORQ 264
+#define MENORQEQ 265
+#define MAIORQ 266
+#define MAIORQEQ 267
+#define OP 268
+#define CP 269
+#define OC 270
+#define CC 271
+#define DOT 272
+#define VIRGULA 273
+#define DP 274
+#define PLUS 275
+#define MINUS 276
+#define MULT 277
+#define DIV 278
+#define SE 279
+#define CONTINUA 280
+#define RETORNA 281
+#define FUNC 282
+#define MOSTRE 283
+#define QUEBRALINHA 284
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
