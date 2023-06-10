@@ -56,7 +56,6 @@ Trabalho soma(x::Int, y::Int)::Int
   Devolva x + y
 FIM
 
-# v2.3 testing
 x_1::Int
 x_1 = 2
 x_1 = soma(1, x_1)
