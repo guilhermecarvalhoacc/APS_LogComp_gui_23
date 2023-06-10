@@ -52,5 +52,6 @@ DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ) ;
 
 # Exemplo de codigo 
 
-![image](https://github.com/guilhermecarvalhoacc/APS_LogComp_gui_23/assets/55805333/ae308733-adab-4b56-8274-da4aa4a4b417)
+![image](https://github.com/guilhermecarvalhoacc/APS_LogComp_gui_23/assets/55805333/0ff4c7b6-b78c-46a2-b0d2-d9a65cb5d9d5)
+
 
