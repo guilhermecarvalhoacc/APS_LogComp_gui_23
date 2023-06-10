@@ -12,19 +12,19 @@ BLOCK = { STATEMENT };
 
 STATEMENT = ( λ | ASSIGNMENT | PRINT), "\n" ;
 
-ASSIGNMENT = (IDENTIFIER, "=", RELEXPRESION) | (DP , TYPE) | "(" , ")" | "(", {"(", RELEXPRESSION, "VIRGULA"} , ")! ;
+ASSIGNMENT = (IDENTIFIER, "=", RELEXPRESION) | (DP , TYPE) | "(" , ")" | "(", {"(", RELEXPRESSION, "VIRGULA"} , ")" ;
 
-RETURN = ( "return", RELEXPRESSION, "\n" );
+RETURN = ( "Devolve", RELEXPRESSION, "\n" );
 
 PRINT = "Amostre", "(", RELEXPRESSION, ")" ;
 
-IF  = ("SoSe", RELEXPRESSION, "\n" , {STATEMENT}, ELSE) | ("IF", RELEXPRESSION, "\n" , {STATEMENT}, "end");
+IF  = ("SoSe", RELEXPRESSION, "\n" , {STATEMENT}, ELSE) | ("IF", RELEXPRESSION, "\n" , {STATEMENT}, "FIM");
 
-ELSE = ("SeNumFor" , "\n", {STATEMENT}, "end");
+ELSE = ("SeNumFor" , "\n", {STATEMENT}, "FIM");
 
-WHILE = ("ArrochaEnquanto", RELEXPRESSION, "\n", {STATEMENT}, "end");
+WHILE = ("ArrochaEnquanto", RELEXPRESSION, "\n", {STATEMENT}, "FIM");
 
-FUNCTION = ("function", IDENTIFIER, "(", ")") | ("function", IDENTIFIER, "(", IDENTIFIER, "DP", TYPE, ("VIRGULA | ")")) , "DP", TYPE, "\n", {STATEMENT}, "end");
+FUNCTION = ("Trabalho", IDENTIFIER, "(", ")") | ("function", IDENTIFIER, "(", IDENTIFIER, "DP", TYPE, ("VIRGULA | ")")) , "DP", TYPE, "\n", {STATEMENT}, "FIM");
 
 RELEXPRESSION = ( EXPRESSION, COMPARACAO );
 
@@ -38,7 +38,7 @@ FACTOR = ("INT" | "STRING"  | (IDENTIFIER | IDENTIFIER, "(", {RELEXPRESSION, "VI
 
 IDENTIFIER = LETTER, { LETTER | DIGIT | "_" } ;
 
-TYPE = ("Int" | "String") ;
+TYPE = ("Int" | "Texto") ;
 
 NUMBER = DIGIT, { DIGIT } ;
 
